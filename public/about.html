@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>About - Zene</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gradient-to-r from-purple-100 via-blue-50 to-pink-100 text-gray-900 font-sans min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md py-4 fixed w-full top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <div class="text-2xl font-bold text-blue-600 select-none">Zene's Porfolio</div>
+      <div class="space-x-8 text-lg">
+        <a href="/" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+        <a href="/about.html" class="text-blue-600 font-semibold">About</a>
+        <a href="/contact.html" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-28 max-w-6xl mx-auto px-6 flex-grow">
+    <section class="text-center mb-16 px-4">
+      <h1 class="text-5xl font-extrabold mb-4 tracking-tight">About Me</h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed flex justify-center items-center gap-3">
+        <span>BSc-IT student,</span>
+        <span id="dynamic-word" class="font-semibold text-blue-600 typing-text"></span>
+      </p>
+      <p class="mt-4 text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        Consistent , Hardworking & Curious
+      </p>
+    </section>
+
+    <section id="skills" class="mb-20 px-4">
+      <h2 class="text-3xl font-bold mb-8 border-b-2 border-blue-300 inline-block pb-2">Skills</h2>
+      <div id="skills-list" class="flex flex-wrap gap-4 justify-center"></div>
+    </section>
+
+    <section id="projects" class="mb-20 px-4">
+      <h2 class="text-3xl font-bold mb-8 border-b-2 border-pink-300 inline-block pb-2">Projects</h2>
+      <div id="projects-list" class="grid md:grid-cols-2 gap-8"></div>
+    </section>
+
+    <section class="mb-20 px-4 max-w-5xl mx-auto">
+  <h2 class="text-3xl font-bold mb-8 border-b-2 border-yellow-400 inline-block pb-2">Certifications</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="bg-yellow-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 class="text-xl font-semibold mb-2 text-yellow-800">IBM - JavaScript Programming With React, Node & MongoDB Specialization</h3>
+      <p class="text-sm text-yellow-700 mb-1">Coursera, Online</p>
+      <p class="text-sm text-yellow-600 mb-2">May 2025 - Present</p>
+      <p class="text-gray-700 leading-relaxed">Learning about JavaScript, React, Node JS, and MongoDB to solve real-world problems.</p>
+    </div>
+
+    <div class="bg-blue-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 class="text-xl font-semibold mb-2 text-blue-800">Google Cybersecurity Professional Certificate</h3>
+      <p class="text-sm text-blue-700 mb-1">Coursera, Online</p>
+      <p class="text-sm text-blue-600 mb-2">Oct 2024 - Dec 2024</p>
+      <p class="text-gray-700 leading-relaxed">Covered risks, threats, Python, Linux, SQL with hands-on security experience.</p>
+    </div>
+
+    <div class="bg-pink-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 class="text-xl font-semibold mb-2 text-pink-800">The Complete Introduction To C++ Programming</h3>
+      <p class="text-sm text-pink-700 mb-2">Udemy, Online — Jun 2024</p>
+    </div>
+
+    <div class="bg-green-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 class="text-xl font-semibold mb-2 text-green-800">Python For Data Science</h3>
+      <p class="text-sm text-green-700 mb-1">Swayam (NPTEL), Online</p>
+      <p class="text-sm text-green-600 mb-2">Jul 2024 - Aug 2024</p>
+      <p class="text-gray-700 leading-relaxed">Data analysis and visualization using Pandas, NumPy, and Matplotlib.</p>
+    </div>
+
+    <div class="bg-purple-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 class="text-xl font-semibold mb-2 text-purple-800">Essential Canva For Graphics Design To Boost Productivity</h3>
+      <p class="text-sm text-purple-700 mb-2">Udemy, Online — Mar 2024</p>
+    </div>
+
+    <div class="bg-indigo-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 class="text-xl font-semibold mb-2 text-indigo-800">Essential Canva Course For Graphics Design</h3>
+      <p class="text-sm text-indigo-700 mb-2">Udemy, Online — Nov 2024</p>
+    </div>
+
+    <div class="bg-red-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h3 class="text-xl font-semibold mb-2 text-red-800">Canva Thumbnail Design Crash Course</h3>
+      <p class="text-sm text-red-700 mb-2">Udemy, Online — Nov 2024</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="text-center py-6 bg-white shadow-inner mt-auto">
+    <p class="text-gray-600 text-sm select-none">© 2025 Zene Ansari. All rights reserved.</p>
+  </footer>
+
+  <script>
+    async function loadAboutData() {
+      const res = await fetch('/api/about-data');
+      if (!res.ok) return;
+      const data = await res.json();
+
+      const skillList = document.getElementById('skills-list');
+      skillList.innerHTML = '';
+      data.skills.forEach(skill => {
+        const badge = document.createElement('span');
+        badge.className = `bg-${skill.color}-500 text-white px-4 py-2 rounded-full shadow-md text-sm font-semibold select-none`;
+        badge.textContent = skill.name;
+        skillList.appendChild(badge);
+      });
+
+      const projectsContainer = document.getElementById('projects-list');
+      projectsContainer.innerHTML = '';
+      data.projects.forEach(project => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-xl shadow-lg transform transition-transform hover:scale-105 p-5";
+        card.innerHTML = `
+          <img src="${project.image}" alt="${project.title} image" class="w-full h-48 object-cover rounded-lg mb-4" />
+          <h3 class="text-xl font-semibold mb-2">${project.title}</h3>
+          <p class="text-gray-600 text-sm">${project.description}</p>
+        `;
+        projectsContainer.appendChild(card);
+      });
+    }
+
+    // Dynamic typing animation
+    const words = [
+      'Creative Coder',
+      'Loves Cat & Coffee',
+      'Web Developer',
+      'Graphic Designer',
+      'Aspiring Full-stack Developer'
+    ];
+
+    let currentWordIndex = 0;
+    let currentText = '';
+    let isDeleting = false;
+    const typingSpeed = 150;
+    const pauseTime = 2000;
+    const dynamicWordEl = document.getElementById('dynamic-word');
+
+    function type() {
+      const fullText = words[currentWordIndex];
+      if (!isDeleting) {
+        currentText = fullText.substring(0, currentText.length + 1);
+      } else {
+        currentText = fullText.substring(0, currentText.length - 1);
+      }
+
+      dynamicWordEl.textContent = currentText;
+
+      if (!isDeleting && currentText === fullText) {
+        setTimeout(() => { isDeleting = true; type(); }, pauseTime);
+      } else if (isDeleting && currentText === '') {
+        isDeleting = false;
+        currentWordIndex = (currentWordIndex + 1) % words.length;
+        setTimeout(type, 500);
+      } else {
+        setTimeout(type, isDeleting ? typingSpeed / 2 : typingSpeed);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadAboutData();
+      type();
+    });
+  </script>
+
+</body>
+</html>

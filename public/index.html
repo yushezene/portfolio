@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <title>Zene's Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gradient-to-r from-purple-100 via-blue-50 to-pink-100 text-gray-900 font-sans min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md py-4 fixed w-full top-0 z-30">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold text-blue-600 select-none">Zene's Portfolio</div>
+      <div class="space-x-10 text-lg font-medium">
+        <a href="/" class="text-blue-600 font-semibold hover:text-pink-600 transition">Home</a>
+        <a href="/about.html" class="text-gray-700 hover:text-blue-600 transition">About</a>
+        <a href="/contact.html" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow pt-28 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12">
+
+    <!-- Intro Section -->
+    <section class="md:col-span-7 flex flex-col justify-center space-y-8 reveal">
+    <section class="md:col-span-7 flex flex-col justify-center space-y-8">
+     <h1 id="typed-heading" class="text-6xl font-extrabold text-pink-600 select-none leading-tight"></h1>
+
+      <p class="text-xl text-gray-700 max-w-xl leading-relaxed tracking-wide animate-fade-in">
+        I'm a <strong class="text-pink-600">BSc-IT student</strong> from Mumbai, passionate about crafting creative full-stack applications blending design and logic.
+        Whether it’s <span class="text-pink-600 font-semibold">React, TypeScript , Node.js, Firebase , Tailwind </span>, or just Vanilla JS and CSS—I’m all in! Building smart, aesthetic, impactful tools is my thing.
+      </p>
+
+      <div class="text-gray-500 italic max-w-md space-y-2 select-none">
+        <p>Coffee, Code, and Curiosity can fix almost anything.</p>
+        <p>✨ I follow this triple C rule — you should try it too! ✨</p>
+      </div>
+      <p class="mt-6 text-md text-gray-600 max-w-xl mx-auto italic">
+  This portfolio is an exploratory project built using Node.js and Tailwind CSS — a fun and practical way to grow my skills through creativity.
+</p>
+
+    </section>
+</section>
+    <!-- Visual -->
+    <section class="md:col-span-5 flex items-center justify-center">
+      <div class="bg-pink-200 rounded-3xl shadow-lg p-12 max-w-sm w-full animate-float">
+        <img src="img.png" alt="Coding Illustration" class="rounded-2xl shadow-md mx-auto" />
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Button -->
+  <button
+    onclick="triggerLove()"
+    class="fixed bottom-6 right-6 bg-pink-500 text-3xl px-6 py-3 rounded-full shadow-xl animate-bounce hover:bg-pink-600 focus:outline-none focus:ring-4 focus:ring-pink-300 transition"
+    aria-label="Send love"
+    title="Click me!"
+  >
+    🤍
+  </button>
+
+  <footer class="mt-16 text-center py-6 bg-white shadow-inner select-none">
+    <p class="text-gray-600 text-sm">© 2025 Zene Ansari. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Confetti + alert for  button
+    function triggerLove() {
+      alert("💖 Zene appreciates you visiting her website!");
+      fetch('/api/visitor', { method: 'POST' });
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+    }
+  </script>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);  
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+  });
+</script>
+
+<script>
+  const text = "Hey, I'm Zene Ansari";
+  const heading = document.getElementById('typed-heading');
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      heading.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 130); 
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    type();
+  });
+</script>
+
+</body>
+</html>
