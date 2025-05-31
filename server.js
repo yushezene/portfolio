@@ -69,14 +69,6 @@ app.get('/api/about-data', (req, res) => {
       { name: "MVC", color: "blue" },
       { name: "ASP .Net", color: "blue" },
 
-
-
-
-
-
-
-
-
     ],
     projects: [
       {
@@ -98,6 +90,11 @@ app.get('/api/about-data', (req, res) => {
         title: "ClassBridge",
         description: "An appointment system for students to book meetings with teachers—simple, clean, and helpful.",
         image: "assets/Project4.png"
+      },
+      {
+        title: "ZenChat",
+        description: "Your pocket companion for emotional support and mental clarity. Chat, reflect, and feel heard—whenever you need it most.",
+        image: "assets/Project2.png"
       }
     ]
   });
