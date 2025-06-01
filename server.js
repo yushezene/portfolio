@@ -93,8 +93,8 @@ app.get('/api/about-data', (req, res) => {
       },
       {
         title: "ZenChat",
-        description: "Your pocket companion for emotional support and mental clarity. Chat, reflect, and feel heard—whenever you need it most.",
-        image: "assets/Project2.png"
+        description: "Your pocket companion for emotional support and mental clarity. ZenChat is under construction — we’re training the chatbot to better support you!",
+        image: "assets/Project5.png"
       }
     ]
   });
